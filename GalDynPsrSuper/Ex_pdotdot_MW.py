@@ -82,7 +82,7 @@ def pdotdotexMW(ldeg,bdeg,dkpc,mul,mub,p,pdotobs,vrad):
 
 
     aT1 = 2.*appl*aspl*coslpluslam
-    aT2 = (c*(fex_pl+fex_z))**2.
+    aT2 = (c*(-pex_pl-pex_z))**2.
     aTsq = appl**2. + aspl**2. + aT1 + apz**2. - aT2
     #if aTsq < 0.0:
     aT =  (appl**2. + aspl**2. + aT1 + apz**2. - aT2)**0.5
@@ -138,7 +138,7 @@ def pdotdotexMW(ldeg,bdeg,dkpc,mul,mub,p,pdotobs,vrad):
     Combterm = jerkt + ssbt + tsbt 
 
 
-    pddotfex = Combterm + fourthterm
+    pddotpex = Combterm + fourthterm
 
     #pddotpex = -fddotfex + 2.*(fex_tot)**2.
    
