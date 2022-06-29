@@ -1,6 +1,6 @@
 import math
 from galpy.potential.mwpotentials import McMillan17
-from galpy.util import bovy_conversion
+from galpy.util import conversion
 from galpy.potential import evaluateRforces
 from galpy.potential import evaluatezforces
 from astropy import units

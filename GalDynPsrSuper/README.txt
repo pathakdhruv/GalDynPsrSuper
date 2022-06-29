@@ -2,7 +2,7 @@
 
 GalDynPsrSuper is a package for calculating dynamical contributions to the first and the second derivatives of the frequencies (as well as periods), both spin or orbital, of pulsars in the Galactic field. These dynamical terms depend on the proper motion, the acceleration and the jerk of the pulsars. The main source of the acceleration of the pulsar is the gravitational potential of the Galaxy. GalDynPsrSuper uses two galpy based models of this potential: 1) 'MWPotential2014wBH' and 2) 'McMillan17'  and has the option to use either one of them. 
 
-Details on various dynamical effects and formalism to estimate those are available in Pathak and Bagchi (New Astronomy 85 (2021) 101549; arXiv: 1909.13113, hereafter Pathak and Bagchi (2021)). Please cite this paper if you use GalDynPsrSuper for your research.
+Details on various dynamical effects and formalism to estimate those are available in Pathak and Bagchi (ApJ 868 (2018) 123; arXiv: 1712.06590, hereafter Pathak and Bagchi (2018)) as well as Pathak and Bagchi (New Astronomy 85 (2021) 101549; arXiv: 1909.13113, hereafter Pathak and Bagchi (2021)). Please cite both the papers if you use GalDynPsrSuper for your research.
 
 This package can calculate the fractional contributions or the excess terms, e.g. \dot{f}/f|_{excess, Gal}, \dot{f}/f|_{excess, Shk} (Eqs. (14),(15) and (19) of Pathak and Bagchi (2018)) and \ddot{f}/f|_excess (Eq. (11) of Pathak and Bagchi (2021)), where f is either the orbital frequency or the spin frequency. Similarly, in the period domain, this package can calculate the excess terms like \dot{P}/P|_{excess, Gal}, \dot{P}/P|_{excess, Shk} and \ddot{P}/P|_excess. 
 
@@ -12,6 +12,7 @@ A brief outline of the usage of GalDynPsrSuper is given below.
 
 # 1) Install GalDynPsrSuper as pip3 install GalDynPsrSuper (assuming you have numpy, scipy, and galpy already installed and working)
 
+We have tested with galpy version 1.6.0 and suggest the users to upgrade galpy if they have older versions as the older versions did not have the McMillan potential.
 If wished, one can change the values of Rs (Galactocentric cylindrical radius of the Sun) and Vs (rotational speed of the Sun around the Galactic centre) in the parameters.in file that can be found inside the GalDynPsrSuper (installed directory).
 But remember that galpy also has these values defined in the file '$home/.galpyrc'. One can in principle change the values in both of the files. However, the Milky Way potential in galpy was fitted with Rs = 8 kpc and Vs = 220 km/s in galpy.
 
@@ -40,20 +41,20 @@ The frequency and its derivatives can either be spin or orbital. Similarly, the 
 
 # 4) Remember that the module names are case sensitive, so use them as demonstrated below. Also, for each case, ordering of the parameters must be as shown.
 
-# 5) Calculate the Galactic contribution to the excess term for the first derivative of the frequency using the two Milky Way Potential models as shown below:
+# 5) Calculate the Galactic contribution to the excess term for the first derivative of the frequency using the two Milky Way Potential models as shown below,
 
-a) When using MWPotential2014wBH
+a) When using MWPotential2014wBH:
 GalDynPsrSuper.ExGal_fdot_MW.ExGalfdotMW(ldeg, bdeg, dkpc)
 
-b) When using McMillan17
+b) When using McMillan17:
 GalDynPsrSuper.ExGal_fdot_MC.ExGalfdotMC(ldeg, bdeg, dkpc)
 
-# 6) Calculate the Galactic contribution to the excess term for the first derivative of the period using the two Milky Way Potential models as shown below:
+# 6) Calculate the Galactic contribution to the excess term for the first derivative of the period using the two Milky Way Potential models as shown below,
 
-a) When using MWPotential2014wBH
+a) When using MWPotential2014wBH:
 GalDynPsrSuper.ExGal_pdot_MW.ExGalpdotMW(ldeg, bdeg, dkpc)
 
-b) When using McMillan17
+b) When using McMillan17:
 GalDynPsrSuper.ExGal_pdot_MC.ExGalpdotMC(ldeg, bdeg, dkpc)
 
 
@@ -70,21 +71,21 @@ GalDynPsrSuper.ExShk_pdot.Exshk(dkpc, mul, mub)
  This term is independent of the Galactic potential model.
 
 
-# 9) Calculate the total excess term in the first derivative of the frequency, say fdotex, as:
+# 9) Calculate the total excess term in the first derivative of the frequency, say fdotex, as shown below,
 
-a) When using MWPotential2014wBH
+a) When using MWPotential2014wBH:
 GalDynPsrSuper.ExGal_fdot_MW.ExGalfdotMW(ldeg, bdeg, dkpc) + GalDynPsrSuper.ExShk_fdot.Exshk(dkpc, mul, mub)
 
-b) When using McMillan17
+b) When using McMillan17:
 GalDynPsrSuper.ExGal_fdot_MC.ExGalfdotMC(ldeg, bdeg, dkpc) + GalDynPsrSuper.ExShk_fdot.Exshk(dkpc, mul, mub)
 
 
-# 10) Calculate the total excess term in the first derivative of the period, say pdotex, as:
+# 10) Calculate the total excess term in the first derivative of the period, say pdotex, as shown below,
 
-a) When using MWPotential2014wBH
+a) When using MWPotential2014wBH:
 GalDynPsrSuper.ExGal_pdot_MW.ExGalpdotMW(ldeg, bdeg, dkpc) + GalDynPsrSuper.ExShk_pdot.Exshk(dkpc, mul, mub) 
 
-b) When using McMillan17
+b) When using McMillan17:
 GalDynPsrSuper.ExGal_pdot_MC.ExGalpdotMC(ldeg, bdeg, dkpc) + GalDynPsrSuper.ExShk_pdot.Exshk(dkpc, mul, mub)
 
 
@@ -119,22 +120,22 @@ pdotint = pdotobs - pdotex * p
 
 
 
-# 14) Calculate the excess terms in the second derivative of the frequency, say fdotdotex, using the two Milky Way Potential models as shown below:
+# 14) Calculate the excess terms in the second derivative of the frequency, say fdotdotex, using the two Milky Way Potential models as shown below,
 
-a) When using MWPotential2014wBH
+a) When using MWPotential2014wBH:
 GalDynPsrSuper.ExGal_fdotdot_MW.fdotdotexMW(ldeg, bdeg, dkpc, mul, mub, f, fdotobs, vrad)
 
-b) When using McMillan17
+b) When using McMillan17:
 GalDynPsrSuper.ExGal_fdotdot_MC.fdotdotexMC(ldeg, bdeg, dkpc, mul, mub, f, fdotobs, vrad)
 
 Here, for both the cases, in addition to assigning the values of ldeg, bdeg, dkpc, mul, mub, f, and fdotobs, one needs to also assign the measured value of the radial component of the relative velocity of the pulsar, 'vrad', in km/s.
 
-# 15) Calculate the excess terms in the second derivative of the period, say pdotdotex, using the two Milky Way Potential models as shown below:
+# 15) Calculate the excess terms in the second derivative of the period, say pdotdotex, using the two Milky Way Potential models as shown below,
 
-a) When using MWPotential2014wBH
+a) When using MWPotential2014wBH:
 GalDynPsrSuper.ExGal_pdotdot_MW.pdotdotexMW(ldeg, bdeg, dkpc, mul, mub, p, pdotobs, vrad)
 
-b) When using McMillan17
+b) When using McMillan17:
 GalDynPsrSuper.ExGal_pdotdot_MC.pdotdotexMC(ldeg, sbdeg, dkpc, mul, mub, p, pdotobs, vrad)
 
 Here, for both the cases, in addition to assigning the values of ldeg, bdeg, dkpc, mul, mub, p, and pdotobs, one needs to also assign the measured value of the radial component of the relative velocity of the pulsar, 'vrad', in km/s.
@@ -181,29 +182,42 @@ fdotobs = -1.43e-15
 fdotdotobs = 1.2e-28
 
 Rpkpc = GalDynPsrSuper.read_parameters.Rpkpc(ldeg, bdeg, dkpc) 
+
 Output: 6.267007084433072
 
+
 zkpc = GalDynPsrSuper.read_parameters.z(ldeg, bdeg, dkpc) 
+
 Output: 0.6840402866513374
 
+
 fex_Gal = GalDynPsrSuper.ExGal_fdot_MW.ExGalfdotMW(ldeg, bdeg, dkpc) 
+
 Output: -3.836151248676907e-21
 
+
 fex_shk = GalDynPsrSuper.ExShk_fdot.Exshk(dkpc, mul, mub) 
+
 Output: -3.886794901984e-18
  
 
 fdotex = fex_Gal + fex_shk
+
 Output: -3.890631053232677e-18
 
+
 fdotint = fdotobs - fdotex * f  
+
 Output: -1.2354684473383662e-15
 
 
 fdotdotfex = GalDynPsrSuper.Ex_fdotdot_MW.fdotdotexMW(ldeg, bdeg, dkpc, mul, mub, f, fdotobs, vrad) 
+
 Output: 9.32211733880072e-33
 
+
 fddotint = fdotdotobs - fdotdotfex * f 
+
 Output: 1.1953389413305997e-28
 
 

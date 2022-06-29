@@ -4,7 +4,7 @@ from . import read_parameters as par
 from galpy.potential.mwpotentials import McMillan17
 from galpy.potential import evaluatezforces, evaluateRforces, evaluatePotentials
 from galpy.potential import evaluatez2derivs,evaluateR2derivs,evaluateRzderivs
-from galpy.util import bovy_conversion
+from galpy.util import conversion
 from astropy import units as u
 from . import ExGal_fdot_MC
 from . import ExShk_fdot
@@ -49,8 +49,8 @@ def fdotdotexMC(ldeg,bdeg,dkpc,mul,mub,f,fdotobs,vrad):
     #mul = mu_delta
 
     muT = (mub**2. + mul**2.)**0.5  
-    #MWPotential2014= [MWPotential2014,KeplerPotential(amp=4*10**6./bovy_conversion.mass_in_msol(par.Vs,par.Rskpc))] 
-    MWPot = [McMillan17,KeplerPotential(amp=4*10**6./bovy_conversion.mass_in_msol(par.Vs,par.Rskpc))]   
+    #MWPotential2014= [MWPotential2014,KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))] 
+    MWPot = [McMillan17,KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))]   
 
     appl = -evaluateRforces(MWPot, Rpkpc/Rskpc,zkpc/Rskpc)*normForcetoSI
     aspl = -evaluateRforces(MWPot, Rskpc/Rskpc,0.0/Rskpc)*normForcetoSI
