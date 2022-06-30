@@ -18,7 +18,6 @@ def MWBHRfo(ldeg, bdeg, dkpc):
     l = ldeg*par.degtorad
     Rskpc = par.Rskpc
     Vs = par.Vs
-    conversion = par.conversion
     Rpkpc = par.Rpkpc(ldeg, bdeg, dkpc)
     zkpc = dkpc*math.sin(b)
     be = (dkpc/Rskpc)*math.cos(b) - math.cos(l)
@@ -44,7 +43,6 @@ def MWBHZfo(ldeg, bdeg, dkpc):
     l = ldeg*par.degtorad
     Rskpc = par.Rskpc
     Vs = par.Vs
-    conversion = par.conversion
     Rpkpc = par.Rpkpc(ldeg, bdeg, dkpc)
     zkpc = dkpc*math.sin(b)
   

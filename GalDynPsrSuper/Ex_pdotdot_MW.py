@@ -18,7 +18,6 @@ def pdotdotexMW(ldeg,bdeg,dkpc,mul,mub,p,pdotobs,vrad):
 
     Rskpc = par.Rskpc
     Vs = par.Vs
-    conversion = par.conversion
     yrts = par.yrts
     c= par.c
     kpctom = par.kpctom

@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="GalDynPsrSuper",
-    version="v0.0.4",
+    version="v0.0.5",
     author="Dhruv Pathak",
     author_email="pathakdhruv9786@gmail.com",
     license='New BSD',

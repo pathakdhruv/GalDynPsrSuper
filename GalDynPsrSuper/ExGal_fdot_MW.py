@@ -18,7 +18,6 @@ def MWBHRfo(ldeg, bdeg, dkpc):
     l = ldeg*par.degtorad
     Rskpc = par.Rskpc
     Vs = par.Vs
-    conversion = par.conversion
     Rpkpc = par.Rpkpc(ldeg, bdeg, dkpc)
     zkpc = dkpc*math.sin(b)
     be = (dkpc/Rskpc)*math.cos(b) - math.cos(l)
@@ -26,7 +25,7 @@ def MWBHRfo(ldeg, bdeg, dkpc):
 
 
     #MWPotential2014BH= [MWPotential2014,KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))]
-    MWPotential2014BH= MWPotential2014+KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))
+    MWPotential2014BH= MWPotential2014+KeplerPotential(amp=4*10**6./conversion.mass_in_msol(Vs,Rskpc))
 
 
     rforce1 = evaluateRforces(MWPotential2014BH, Rpkpc/Rskpc,zkpc/Rskpc)*((Vs*1000.)**2.)/(Rskpc*par.kpctom) #m/ss
@@ -44,7 +43,6 @@ def MWBHZfo(ldeg, bdeg, dkpc):
     l = ldeg*par.degtorad
     Rskpc = par.Rskpc
     Vs = par.Vs
-    conversion = par.conversion
     Rpkpc = par.Rpkpc(ldeg, bdeg, dkpc)
     zkpc = dkpc*math.sin(b)
   
