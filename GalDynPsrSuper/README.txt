@@ -12,7 +12,7 @@ A brief outline of the usage of GalDynPsrSuper is given below.
 
 # 1) Install GalDynPsrSuper as pip3 install GalDynPsrSuper (assuming you have numpy, scipy, and galpy already installed and working)
 
-We have tested with galpy version 1.6.0 and suggest the users to upgrade galpy if they have older versions as the older versions did not have the McMillan potential.
+We have tested with galpy version 1.7.2 and suggest the users to upgrade galpy if they have older versions (much older versions did not have the McMillan potential and there might be additional discrepancies as well).
 If wished, one can change the values of Rs (Galactocentric cylindrical radius of the Sun) and Vs (rotational speed of the Sun around the Galactic centre) in the parameters.in file that can be found inside the GalDynPsrSuper (installed directory).
 But remember that galpy also has these values defined in the file '$home/.galpyrc'. One can in principle change the values in both of the files. However, the Milky Way potential in galpy was fitted with Rs = 8 kpc and Vs = 220 km/s in galpy.
 

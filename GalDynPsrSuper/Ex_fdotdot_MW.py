@@ -51,7 +51,8 @@ def fdotdotexMW(ldeg,bdeg,dkpc,mul,mub,f,fdotobs,vrad):
 
     muT = (mub**2. + mul**2.)**0.5  
     #MWPotential2014= [MWPotential2014,KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))] 
-    MWPot = [MWPotential2014,KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))]   
+    #MWPot = [MWPotential2014,KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc))]  
+    MWPot= MWPotential2014+KeplerPotential(amp=4*10**6./conversion.mass_in_msol(par.Vs,par.Rskpc)) 
 
     appl = -evaluateRforces(MWPot, Rpkpc/Rskpc,zkpc/Rskpc)*normForcetoSI
     aspl = -evaluateRforces(MWPot, Rskpc/Rskpc,0.0/Rskpc)*normForcetoSI
